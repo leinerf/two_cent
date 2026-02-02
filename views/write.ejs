@@ -1,0 +1,20 @@
+<%- include('header.ejs') %>
+
+    <div class="container p-3">
+        <form action="/write" name="post" method="post">
+            <div class="editor container">
+                <textarea name="post">Hello, World!</textarea>
+                <input class="mt-1 btn btn-light align-self-end" type="submit" value="post">
+            </div>
+        </form>
+    </div>
+    <% if(locals.TINYMCE_API_KEY) {%>
+        <script src="https://cdn.tiny.cloud/1/<%=TINYMCE_API_KEY%>/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+        <% } %>
+            <script>
+                tinymce.init({
+                    selector: 'textarea',
+                });
+            </script>
+
+            <%- include('footer.ejs') %>
